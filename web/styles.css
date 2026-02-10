@@ -1,0 +1,492 @@
+/* styles.css - 纸感 + 手写墨色 */
+
+:root {
+  /* 纸色：暖白/米黄 */
+  --bg-body: #f5f0e8;
+  --bg-soft: #faf6f0;
+  /* 手写墨色：深褐/炭灰 */
+  --text-main: #2c2419;
+  --text-muted: #6b5d4f;
+  --primary: #4a3f35;
+  --border-strong: #d4c9b8;
+  --radius-md: 10px;
+  /* 需求3/5：Example 媒体格与对比区单格同面积，未测量前的回退值（9:16 竖屏 / 16:9 横屏） */
+  --example-portrait-width: 160px;
+  --example-portrait-height: 284px;
+  --example-landscape-width: 284px;
+  --example-landscape-height: 160px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "KaiTi", "楷体", "STKaiti", "华文楷体", serif;
+  background: var(--bg-body);
+  color: var(--text-main);
+}
+
+.container {
+  width: min(1400px, 98%); /* 稍微加宽以容纳8列 */
+  margin: 0 auto;
+}
+
+/* 顶部与公共样式 */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-strong);
+}
+.topbar-inner { display: flex; justify-content: space-between; padding: 10px 0; }
+.brand-title { font-weight: 700; font-size: 18px; }
+.topnav a { margin-left: 15px; text-decoration: none; color: var(--text-main); font-size: 14px; }
+
+.a4-wrap { margin: 20px auto; max-width: 100%; }
+.a4-page { padding: 20px 0; border-bottom: 1px dashed var(--border-strong); }
+/* 需求2：Example 与对比区同宽，内容区不设更窄 wrapper */
+.example-page-fullbleed { width: 100%; }
+#Examples .section,
+#videoGallery { width: 100%; max-width: none; }
+
+.section-head { margin-bottom: 20px; }
+.page-title { font-size: 24px; margin: 0; }
+.page-subtitle { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+/* 视频播放状态图标 */
+.grid-video-wrap {
+  position: relative;
+  background: #000;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 6px; /* 圆角让密集排列更柔和 */
+  transform: translateZ(0); /* Fix Chrome flicker */
+}
+.grid-video-wrap video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* 核心：充满容器，无黑边 */
+}
+.grid-play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.grid-video-wrap:hover .grid-play-icon { opacity: 1; }
+.grid-play-icon::before {
+  content: "▶";
+  color: white;
+  font-size: 24px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.grid-play-icon.is-playing::before { content: "⏸"; }
+
+/* -------------------------------------------
+   New Example Grid System (视频、图片、音频、文本、Ours双列)
+------------------------------------------- */
+
+.category-title {
+  font-size: 18px;
+  color: var(--primary);
+  margin: 0 0 18px;
+  padding-left: 4px;
+  border-left: 3px solid var(--primary);
+  font-weight: 700;
+}
+
+/* 需求2：Example 与对比区同宽，不另设更窄的 wrapper；
+   这里把每一个分类、对比区域以及首页论文区都放在一张“独立纸面”上（参考示例截图） */
+.example-category,
+#tbCompare,
+.page-paper {
+  position: relative;
+  margin: 32px auto 40px;
+  width: 100%;
+  max-width: 100%;
+  padding: 24px 28px 28px;
+  background: #fffdf8;
+  border-radius: 16px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(212, 201, 184, 0.9);
+}
+
+.example-category:first-of-type {
+  margin-top: 16px;
+}
+
+.category-title::after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* 行布局：视频、图片、音频、文本、Ours双列 */
+.example-header-row {
+  margin-bottom: 10px;
+}
+
+.example-header-row .example-row-cells {
+  justify-content: center;
+}
+
+.example-row {
+  margin-bottom: 14px;
+}
+
+.example-row-cells {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr; /* 输入视频、输入图片、音频、文本、Ours BGM、Ours Vocal */
+  gap: 14px;
+  align-items: stretch;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Equal Area：横屏行矮而宽、竖屏行高而窄，与 Comparison 视觉面积一致。
+   使用 min-height，具体高度由媒体自身 aspect-ratio 驱动。 */
+.example-row-cells.mode-landscape {
+  min-height: 180px;
+  /* 文本列略窄；第1列与第5/6列同宽，保证 Ours 每个视频与输入视频同宽同高 */
+  grid-template-columns: 1.7fr 1.7fr 1fr 1.6fr 1.7fr 1.7fr;
+}
+.example-row-cells.mode-portrait {
+  min-height: 320px;
+  /* 竖屏时同样保证第1列与第5/6列同宽，并缩窄文本列 */
+  grid-template-columns: 0.9fr 0.9fr 1fr 1.6fr 0.9fr 0.9fr;
+}
+.example-row-cells.mode-landscape .example-ours-wrapper,
+.example-row-cells.mode-portrait .example-ours-wrapper {
+  grid-column: span 2;
+}
+
+/* 表头行不设固定高度，仅沿用列比例 */
+.example-header-row .example-row-cells.mode-landscape,
+.example-header-row .example-row-cells.mode-portrait {
+  height: auto;
+  min-height: 0;
+}
+
+/* 媒体格填满网格单元格 */
+.example-media-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.example-media-cell .grid-video-wrap,
+.example-media-cell .grid-image-wrap,
+.example-media-cell .ex-placeholder {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.example-media-cell .grid-video-wrap video,
+.example-media-cell .grid-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Example 行内：让视频/图片 wrapper 的高度由各自的 aspect-ratio 决定 */
+.example-row .example-media-cell .grid-video-wrap,
+.example-row .example-media-cell .grid-image-wrap {
+  height: auto;
+}
+
+/* Example 数据行：行高由媒体格驱动，不再固定 200px */
+.example-row .example-row-cells {
+  align-items: stretch;
+}
+
+/* 表头行：无外边框，与数据行视觉一致 */
+.example-header-row .example-row-cells {
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.ex-header-cell {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 10px 6px;
+  background: transparent;
+  border-radius: 4px;
+}
+
+/* Ours双列包装器：BGM左、Vocal右，间距一致 */
+.example-ours-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.example-row .example-ours-wrapper {
+  align-items: stretch;
+  min-height: 0;
+}
+
+.example-ours-wrapper .grid-video-wrap,
+.example-ours-wrapper .ex-placeholder {
+  min-width: 0;
+}
+
+.example-row .example-ours-wrapper .grid-video-wrap,
+.example-row .example-ours-wrapper .ex-placeholder {
+  min-height: 0;
+}
+
+/* 图片样式：保持原始比例，无畸变（Example 区由 CSS 固定行高，其余可由 JS onload 设 aspectRatio） */
+.grid-image-wrap {
+  position: relative;
+  background: var(--bg-soft);
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 16 / 9; /* fallback 未载入时 */
+  border: 1px solid var(--border-strong);
+}
+
+.grid-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* 音频样式：与图片参考一致；Example 区无边框（见下方 .example-row 覆盖） */
+.grid-audio-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-soft);
+  border-radius: 8px;
+  padding: 10px;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border-strong);
+}
+
+.grid-audio-wrap audio {
+  width: 100%;
+  max-width: 100%;
+  height: 32px;
+}
+
+.audio-btn {
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--text-main);
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.audio-btn:hover {
+  background: var(--border-strong);
+}
+.audio-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* 文本区域：与图片中文本块一致；Example 区无边框（见下方 .example-row 覆盖） */
+.grid-text-wrap {
+  display: flex;
+  align-items: flex-start;
+  padding: 14px;
+  background: var(--bg-soft);
+  border-radius: 8px;
+  min-height: 100px;
+  border: 1px solid var(--border-strong);
+}
+
+.grid-text-content {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-main);
+  white-space: pre-wrap;
+  word-break: break-word;
+  width: 100%;
+}
+
+/* 需求1 & 3：Example 区域无外边框，仅留白区分；输入视频与输入图片在同一行内像素面积一致、圆角一致 */
+.example-row .grid-video-wrap,
+.example-row .grid-image-wrap,
+.example-row .ex-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.example-row .grid-video-wrap video,
+.example-row .grid-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Example 区无边框：文本/音频/占位符浮于页面背景 */
+.example-row .grid-text-wrap,
+.example-row .grid-audio-wrap,
+.example-row .ex-placeholder {
+  min-height: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+.example-row .grid-text-wrap {
+  align-items: center;
+  justify-content: flex-start;
+}
+.example-row .grid-audio-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.example-row .grid-audio-wrap audio {
+  display: none;
+}
+.example-row .grid-text-content {
+  text-align: left;
+}
+
+/* 占位符（当没有内容时）；Example 行内无边框由 .example-row .ex-placeholder 覆盖 */
+.ex-placeholder {
+  aspect-ratio: 16 / 9;
+  background: var(--bg-soft);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 12px;
+  border: 1px dashed var(--border-strong);
+}
+.ex-placeholder-missing-modality .ex-placeholder-icon {
+  font-size: 18px;
+  opacity: 0.7;
+}
+.ex-placeholder-missing-modality .ex-placeholder-text {
+  font-size: 11px;
+  text-align: center;
+  padding: 0 8px;
+}
+
+/* 需求2：按方向统一 Example 媒体格可见宽高比，使输入视频与输入图片像素面积一致 */
+.example-category.landscape .example-media-cell .grid-video-wrap,
+.example-category.landscape .example-media-cell .grid-image-wrap,
+.example-category.landscape .example-media-cell .ex-placeholder {
+  aspect-ratio: 16 / 9;
+}
+
+.example-category.portrait .example-media-cell .grid-video-wrap,
+.example-category.portrait .example-media-cell .grid-image-wrap,
+.example-category.portrait .example-media-cell .ex-placeholder {
+  aspect-ratio: 9 / 16;
+}
+
+/* 响应式适配：窄屏时保持列比例 */
+@media (max-width: 1400px) {
+  .example-row-cells:not(.mode-portrait):not(.mode-landscape) {
+    grid-template-columns: 1fr 1fr 1fr 1.5fr 1fr 1fr;
+  }
+  .example-row-cells.mode-landscape {
+    /* 与大屏保持一致的比例关系：文本更窄，Ours 每个视频与输入视频同宽 */
+    grid-template-columns: 1.6fr 1.6fr 1fr 1.4fr 1.6fr 1.6fr;
+  }
+  .example-row-cells.mode-portrait {
+    grid-template-columns: 0.85fr 0.85fr 1fr 1.6fr 0.85fr 0.85fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .example-row-cells {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .example-header-row .example-row-cells {
+    display: grid;
+    white-space: normal;
+  }
+
+  .example-row-cells > * {
+    display: inline-block;
+    vertical-align: top;
+    width: 180px;
+    margin-right: 12px;
+  }
+
+  .grid-text-wrap {
+    width: 300px;
+  }
+
+  .example-ours-wrapper {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    width: 360px;
+  }
+}
+
+/* TB Comparison Matrix Styles (Existing) */
+.compare-grid-container {
+  display: grid;
+  gap: 15px;
+}
+.compare-grid-row {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  gap: 10px;
+  align-items: start; /* 每格按自身视频比例定高，避免拉伸出黑边 */
+}
+/* Comparison Results：保持视频原始比例，无黑边（由 JS 在 loadedmetadata 时设置真实比例） */
+.compare-cell .grid-video-wrap {
+  aspect-ratio: 16 / 9; /* 未加载时的回退比例 */
+  background: var(--bg-body); /* 与页面一致，避免 contain 时露出黑边 */
+}
+.compare-cell .grid-video-wrap video {
+  object-fit: contain; /* 比例一致时无黑边 */
+}
+.grid-label {
+  font-size: 12px;
+  text-align: center;
+  padding: 4px;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+}
+.compare-cell.has-separator {
+  border-right: 1px dashed var(--border-strong);
+  padding-right: 8px;
+  margin-right: -4px;
+}

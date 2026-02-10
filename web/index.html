@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NingBGM · Project Page</title>
+    <meta name="description" content="NingBGM 项目展示页：纯白论文风格、目录锚点、视频/音频对比网格、用 JSON 自动渲染案例。" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#content">跳到正文</a>
+
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">NB</div>
+          <div class="brand-text">
+            <div class="brand-title">NingBGM</div>
+            <div class="brand-subtitle">Project Page · GitHub Pages</div>
+          </div>
+        </div>
+
+        <nav class="topnav" aria-label="主导航">
+          <a href="#TB">Compare 视频矩阵</a>
+          <a href="#Examples">Examples</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container">
+      <div class="a4-wrap">
+        <section class="a4-page" id="page-1" aria-label="摘要与封面">
+          <div class="page-paper">
+            <section class="hero">
+              <div class="hero-left">
+                <h1 class="h1">视频在音乐中回响</h1>
+                <p class="muted">
+                  一个纯静态的论文/项目展示页：支持“按方法列对齐”的视频对比表（带播放/暂停按钮），以及一个简单的 mp4 列表。
+                  数据由 JSON 驱动，适合在 GitHub Pages 上直接部署展示。
+                </p>
+
+                <div class="hero-actions">
+                  <a class="btn" href="#" target="_blank" rel="noreferrer">Paper</a>
+                  <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Dataset</a>
+                  <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Code</a>
+                  <a class="btn ghost" href="./data/example_mp4.json" target="_blank" rel="noreferrer">example_mp4.json</a>
+                </div>
+
+                <div class="notice">
+                  <div class="notice-title">如何更新展示的视频列表？</div>
+                  <div class="notice-body">
+                    - 对比矩阵：由 <code>demo_io/demo_compare/</code> 目录结构约定生成（第一列 GroundTruth、第二列 Ours、其余按首字母 A-Z），无需编辑 JSON。
+                    <br />
+                    - Examples 区：编辑 <code>web/data/example_mp4.json</code>，资源来自 <code>demo_io/demo_example/demo_scene</code>、<code>demo_io/demo_example/demo_video</code>、<code>demo_io/demo_example/demo_audio</code>、<code>demo_io/demo_example/demo_audio_video</code> 等目录。
+                  </div>
+                </div>
+              </div>
+
+              <aside class="hero-right" aria-label="快速目录">
+                <div class="card">
+                  <div class="card-title">Experiment (Demo)</div>
+                  <ul class="toc">
+                    <li><a href="#page-2">视频对比</a></li>
+                    <li><a href="#page-3">更多结果</a></li>
+                  </ul>
+                  <div class="divider"></div>
+                  <button id="reloadBtn" class="btn small" type="button">重新加载</button>
+                  <div id="status" class="status" role="status" aria-live="polite"></div>
+                </div>
+              </aside>
+            </section>
+
+            <footer class="footer">
+              <div class="muted tiny">
+                生成/改造：<code>web/index.html</code> + <code>web/styles.css</code> + <code>web/app.js</code>
+              </div>
+            </footer>
+          </div>
+        </section>
+        <section class="a4-page" id="page-2" aria-label="模型对比">
+          <section id="TB" class="section">
+            <div id="tbCompare"></div>
+          </section>
+        </section>
+
+        <section class="a4-page example-page-fullbleed" id="page-3" aria-label="更多结果">
+          <section id="Examples" class="section">
+            <div id="videoGallery"></div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

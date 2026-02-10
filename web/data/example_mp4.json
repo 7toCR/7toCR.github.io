@@ -1,0 +1,456 @@
+{
+  "title": "Example Videos",
+  "description": "10个分类，每个分类4行：视频+音频+图片+文本、音频+图片+文本、视频+图片+文本、图片+文本",
+  "categories": [
+    {
+      "id": "beauty",
+      "name": "时尚",
+      "orientation": "portrait",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/beauty/beauty_06.mp4",
+        "image": "demo_io/demo_example/demo_original/beauty/beauty_06.jpg",
+        "audio": "demo_io/demo_example/demo_original/beauty/beauty_06.mp3",
+        "text": "沉浸式卸妆+护肤｜超治愈的晚间日常，每一天都要水嫩嫩！#沉浸式#护肤#晚间护肤"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/beauty/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/beauty/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/beauty/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/beauty/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/beauty/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/beauty/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/beauty/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/beauty/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "car",
+      "name": "汽车",
+      "orientation": "landscape",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/car/car_01.mp4",
+        "image": "demo_io/demo_example/demo_original/car/car_01.jpg",
+        "audio": "demo_io/demo_example/demo_original/car/car_01.mp3",
+        "text": "老有人说我瞎配音，这条原声直接发#阿斯顿马丁vanquish声浪 #v12声浪 #原声 #汽车摄影 #咆哮"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/car/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/car/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/car/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/car/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/car/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/car/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/car/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/car/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "name": "美食",
+      "orientation": "portrait",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/food/food_02.mp4",
+        "image": "demo_io/demo_example/demo_original/food/food_02.jpg",
+        "audio": "demo_io/demo_example/demo_original/food/food_02.mp3",
+        "text": "杨枝甘露炒酸奶 #asmr #炒酸奶 #固体杨枝甘露"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/food/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/food/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/food/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/food/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/food/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/food/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/food/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/food/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "name": "知识",
+      "orientation": "landscape",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/knowledge/konwledge_11.mp4",
+        "image": "demo_io/demo_example/demo_original/knowledge/konwledge_11.jpg",
+        "audio": "demo_io/demo_example/demo_original/knowledge/konwledge_11.mp3",
+        "text": "声音看得见 耳听为虚，眼见为实！物理老师巧妙利用光的反射和振动发声，让声音看得见。#大型科学实验秀#物理实验@桂林创坊教育  #科普 #活动现场 #现场实拍"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/knowledge/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/knowledge/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/knowledge/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/knowledge/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/knowledge/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/knowledge/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/knowledge/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/knowledge/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "live",
+      "name": "生活",
+      "orientation": "landscape",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/live/live_02.mp4",
+        "image": "demo_io/demo_example/demo_original/live/live_02.jpg",
+        "audio": "demo_io/demo_example/demo_original/live/live_02.mp3",
+        "text": "这就是生活，总是和我们想象中的有很大差别，它是一部电影，但我们无法按暂停键，也不知道哪一刻会影片结束。#把生活拍成电影 今天没有音乐，今天只有这个城市自己的声音。"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/live/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/live/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/live/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/live/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/live/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/live/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/live/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/live/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pet",
+      "name": "宠物",
+      "orientation": "portrait",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/pet/pet_14.mp4",
+        "image": "demo_io/demo_example/demo_original/pet/pet_14.jpg",
+        "audio": "demo_io/demo_example/demo_original/pet/pet_14.mp3",
+        "text": "朋友说原声一分钟都不用剪^o^#最萌巴哥犬 #萌宠 #毛孩子 #动物的迷惑行为 #宠物vlog"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/pet/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/pet/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/pet/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/pet/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/pet/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/pet/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/pet/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/pet/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene",
+      "name": "风景",
+      "orientation": "landscape",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/scene/scene_17.mp4",
+        "image": "demo_io/demo_example/demo_original/scene/scene_17.jpg",
+        "audio": "demo_io/demo_example/demo_original/scene/scene_17.MP3",
+        "text": "当视频不再有爆款BGM时，我的生活像电影📷 当只剩下周遭的真实声响，才意识到我们不是一篇篇洗脑爆款短视频，而是一幕幕的人生长片电影。#每一帧都是热爱 #电影感 #将生活拍出电影感 #在拍一种很新的vlog #城市记忆"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/scene/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/scene/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/scene/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/scene/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/scene/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/scene/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/scene/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/scene/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "skill",
+      "name": "技能",
+      "orientation": "portrait",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/skill/skill_02.mp4",
+        "image": "demo_io/demo_example/demo_original/skill/skill_02.jpg",
+        "audio": "demo_io/demo_example/demo_original/skill/skill_02.MP3",
+        "text": "第一人称带你云速降 无BGM纯享版#山地车速降 #带着action3去旅行 #极限运动 #rhj车混"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/skill/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/skill/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/skill/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/skill/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/skill/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/skill/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/skill/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/skill/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sport",
+      "name": "运动",
+      "orientation": "landscape",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/sport/sport_02.mp4",
+        "image": "demo_io/demo_example/demo_original/sport/sport_02.jpg",
+        "audio": "demo_io/demo_example/demo_original/sport/sport_02.mp3",
+        "text": "大迫杰分享原声跑步视频，景色美，跑资更美！ #精英跑者 #跑步 #跑姿 #大伯杰 #跑步姿势"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/sport/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/sport/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/sport/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/sport/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/sport/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/sport/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/sport/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/sport/vocal.mp4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "technology",
+      "name": "科技",
+      "orientation": "landscape",
+      "original": {
+        "video": "demo_io/demo_example/demo_original/technology/technology_10.mp4",
+        "image": "demo_io/demo_example/demo_original/technology/technology_10.jpg",
+        "audio": "demo_io/demo_example/demo_original/technology/technology_10.MP3",
+        "text": "西湖机器人身外化身系统是本次内容提及的核心概念之一，可能指代一种能够实现远程代理或替身功能的技术系统。该系统可能通过某种机制让操作者在远程环境中拥有类似 \"化身\" 的存在，从而完成特定任务或交互。"
+      },
+      "rows": [
+        {
+          "type": "video_audio_image_text",
+          "label": "视频+音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_full_scene/technology/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_full_scene/technology/vocal.mp4"
+          }
+        },
+        {
+          "type": "audio_image_text",
+          "label": "音频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_video/technology/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_video/technology/vocal.mp4"
+          }
+        },
+        {
+          "type": "video_image_text",
+          "label": "视频+图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio/technology/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio/technology/vocal.mp4"
+          }
+        },
+        {
+          "type": "image_text",
+          "label": "图片+文本",
+          "output": {
+            "bgm": "demo_io/demo_example/demo_missing_audio_video/technology/bgm.mp4",
+            "vocal": "demo_io/demo_example/demo_missing_audio_video/technology/vocal.mp4"
+          }
+        }
+      ]
+    }
+  ]
+}
