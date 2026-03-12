@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NingBGM · Project Page</title>
+    <meta
+      name="description"
+      content="NingBGM project page: paper-style layout, anchored sections, video/audio comparison grid, and JSON-driven examples."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">NB</div>
+          <div class="brand-text">
+            <div class="brand-title">NingBGM</div>
+            <div class="brand-subtitle">Project Page · GitHub Pages</div>
+          </div>
+        </div>
+
+        <nav class="topnav" aria-label="Primary navigation">
+          <a href="#TB">Comparison grid</a>
+          <a href="#Examples">Examples</a>
+          <a href="#Disclaimer">免责声明</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="container">
+      <div class="a4-wrap">
+        <section class="a4-page" id="page-1" aria-label="Abstract and overview">
+          <section class="hero">
+            <div class="hero-left">
+              <h1 class="h1">NingBGM: Multi-Agent Collaborative Music Generation for Comprehensive Scene Understanding</h1>
+              <div class="abstract">
+                <div class="notice-title">Abstract</div>
+                <p class="muted">
+                  Existing music generation methods are mostly driven by a single input modality, making it difficult to
+                  fully capture and exploit the rich multimodal information in real-world scenarios; as a result, the
+                  generated music is often insufficiently aligned with the scene in both semantics and emotion. To
+                  address this, we propose NingBGM, a multi-agent background-music generation framework for
+                  comprehensive scene understanding. The framework aims to drive high-quality, scene-adaptive music
+                  generation by deeply and structurally understanding complete scenes composed of video, audio, images,
+                  and text. First, we build CSD-200, the first dataset for this task, containing 200 samples with
+                  fine-grained structured annotations for each modality. Second, we design a supervisor-based
+                  hierarchical multi-agent collaboration architecture. Through an \"Agent Profile\" mechanism, the
+                  framework instantiates general large language models as domain experts and coordinates three agent
+                  teams?requirement analysis, scene understanding, and music generation?to simulate a professional
+                  creative workflow of \"plan?execute?verify\", enabling end-to-end music generation. Experimental
+                  results show that NingBGM outperforms existing baseline models on AudioBox music-quality metrics, an
+                  improved CLAP scene-matching score, and subjective/objective MOS evaluations; on some metrics, it
+                  even surpasses real-world music samples. Ablation studies further verify the necessity of multimodal
+                  fusion?especially the video modality?for improving scene?music alignment. This study demonstrates
+                  the effectiveness of a multi-agent collaborative paradigm based on comprehensive scene understanding
+                  for music generation.
+                </p>
+              </div>
+            </div>
+
+            <aside class="hero-right" aria-label="Quick links">
+              <div class="card">
+                <div class="card-title">Experiment (Demo)</div>
+                <ul class="toc">
+                  <li><a href="#page-2">Video comparison</a></li>
+                  <li><a href="#page-3">More results</a></li>
+                  <li><a href="#page-4">Disclaimer</a></li>
+                </ul>
+                <div class="divider"></div>
+                <button id="reloadBtn" class="btn small" type="button">Reload</button>
+                <div id="status" class="status" role="status" aria-live="polite"></div>
+              </div>
+            </aside>
+          </section>
+        </section>
+        <section class="a4-page" id="page-2" aria-label="Model comparison">
+          <section id="TB" class="section">
+            <div id="tbCompare"></div>
+          </section>
+        </section>
+
+        <section class="a4-page example-page-fullbleed" id="page-3" aria-label="More results">
+          <section id="Examples" class="section">
+            <div id="videoGallery"></div>
+          </section>
+        </section>
+
+        <section class="a4-page" id="page-4" aria-label="Disclaimer">
+          <section id="Disclaimer" class="section">
+            <div class="section-head">
+              <h2 class="page-title">免责声明</h2>
+              <p class="page-subtitle">以下声明仅用于学术研究与技术展示说明；如有疑问或权益相关问题，请联系我们。</p>
+            </div>
+
+            <div class="card">
+              <div class="card-title">学术用途声明</div>
+              <div class="muted">
+                以上内容仅用于学术研究与技术展示，用于呈现技术能力与效果对比；不构成任何商业承诺或授权。如你对内容合规性、版权或使用范围有疑问，请与我们联系。
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">版权声明</div>
+              <div class="muted">演示中展示的媒体素材版权归其权利人所有；作者保留其余内容的相关权利。</div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">致谢</div>
+              <div class="muted">
+                Video comparison区域部分素材来源于
+                <a href="https://vem-paper.github.io/VeM-page/" target="_blank" rel="noreferrer">https://vem-paper.github.io/VeM-page/</a>。
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">引用</div>
+              <div class="muted">如该项目对你有帮助，欢迎引用我们的论文（引用信息待补充）。</div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">更多结果使用声明</div>
+              <div class="muted">
+                <ul class="disclaimer-list">
+                  <li>来源于互联网收集。</li>
+                  <li>仅用于学术研究与技术展示。</li>
+                  <li>禁止任何个人或组织用于商业或其他用途。</li>
+                  <li>若存在版权或合规问题，请联系我们，我们将及时处理或下架相关内容。</li>
+                  <li>
+                    联系方式：
+                    <a href="mailto:m202420970@xs.ustb.edu.cn">m202420970@xs.ustb.edu.cn</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
